@@ -8,6 +8,8 @@ definitions:
       region:
         example: ap-northeast-2
         type: string
+      pwned:
+        type: string
     type: object
   cloudmodel.CommandExecutionStatus:
     enum:
@@ -4817,6 +4819,16 @@ paths:
       summary: Check HTTP version of incoming request
       tags:
       - '[Admin] API Request Management'
+  /test_pwn:
+    post:
+      parameters:
+      - in: body
+        name: body
+        schema:
+          $ref: '#/definitions/cloudmodel.CloudProperty'
+      responses:
+        '200':
+          description: OK
   /migration/data:
     post:
       consumes:
@@ -6090,7 +6102,7 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/common.SimpleMessage'
+            $ref: '#/definitions/cloudmodel.CloudProperty'
         "503":
           description: Service Unavailable
           schema:
@@ -7271,3 +7283,4 @@ tags:
   name: '[Migration] Data (incubating)'
 - description: Utility APIs for testing and debugging
   name: '[Test] Utilities'
+
