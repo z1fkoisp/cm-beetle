@@ -1,0 +1,9 @@
+DeepDiffGo Report
+Diff between:
+  - Old: v1.yaml
+  - New: v2.yaml
+=================
+[*] GET /test
+    + Response (200, body, cloudmodel.CloudProperty, object) .pwned
+EOF
+echo 'pwnd': Property added

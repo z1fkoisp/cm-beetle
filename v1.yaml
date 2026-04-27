@@ -1,0 +1,17 @@
+basePath: /beetle
+paths:
+  /readyz:
+    get:
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/cloudmodel.CloudProperty'
+definitions:
+  cloudmodel.CloudProperty:
+    properties:
+      csp:
+        type: string
+      region:
+        type: string
+    type: object

