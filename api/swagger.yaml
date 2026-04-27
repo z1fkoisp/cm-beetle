@@ -8,6 +8,8 @@ definitions:
       region:
         example: ap-northeast-2
         type: string
+      pwned:
+        type: string
     type: object
   cloudmodel.CommandExecutionStatus:
     enum:
@@ -7271,3 +7273,4 @@ tags:
   name: '[Migration] Data (incubating)'
 - description: Utility APIs for testing and debugging
   name: '[Test] Utilities'
+
